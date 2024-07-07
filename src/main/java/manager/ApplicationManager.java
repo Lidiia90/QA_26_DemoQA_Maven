@@ -23,6 +23,7 @@ public class ApplicationManager {
     public void setUp(){
         chromeOptions.addArguments("load-extension=/Users/lidashpektorovska/Tools/5.10.1_0");
         driver = new ChromeDriver(chromeOptions);
+        driver.manage().window().maximize();
         //driver.navigate().to("https://demoqa.com/");
         try {
             Thread.sleep(5000);
