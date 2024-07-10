@@ -31,6 +31,21 @@ public class AutomationPracticeFormPage extends BasePage{
     WebElement fieldDateOfBirth;     //01 Jun 2020
     @FindBy(id = "subjectsInput")
     WebElement fieldSubjects;
+    @FindBy(id = "currentAddress")
+    WebElement fieldCurrentAddress;
+    @FindBy(id = "react-select-3-input")
+    WebElement fieldState;
+    @FindBy(id = "react-select-4-input")
+    WebElement fieldCity;
+    @FindBy(xpath = "//button[text()='Submit']")
+    WebElement btnSubmit;
+    //==========================
+    @FindBy(id = "closeLargeModal")
+    WebElement btnCloseModal;
+
+    @FindBy(id = "example-modal-sizes-title-lg")
+    WebElement textThanksFor;
+
 
     public AutomationPracticeFormPage typeStudentForm(StudentDTO student){
         hideFooter();
@@ -45,9 +60,19 @@ public class AutomationPracticeFormPage extends BasePage{
         typeFieldDateOfBirth(student.getDateOfBirth());
         typeFieldSubjects(student.getSubjects());
         typeHobbies(student.getHobbies());
+        fieldCurrentAddress.sendKeys(student.getCurrentAddress());
+        //================================
+        fieldState.sendKeys(student.getState());
+        fieldState.sendKeys(Keys.ENTER);
+        fieldCity.sendKeys(student.getCity());
+        fieldCity.sendKeys(Keys.ENTER);
 
         return this;
     }
+public AutomationPracticeFormPage clickBtnSubmit(){
+        btnSubmit.click();
+        return this;
+}
 
     private void typeHobbies(List<Hobbies> hobbies) {
         for (Hobbies h: hobbies) {
@@ -88,5 +113,8 @@ public class AutomationPracticeFormPage extends BasePage{
     private void clickGender(Gender gender) {
         WebElement elementGender = driver.findElement(By.xpath(gender.getLocator()));
         elementGender.click();
+    }
+    public boolean isElementPresent_btnCloseModal(){
+        return isElementPresentWithWait(textThanksFor, 5);
     }
 }
