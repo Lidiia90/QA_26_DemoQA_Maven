@@ -99,7 +99,6 @@ public AutomationPracticeFormPage clickBtnSubmit(){
             fieldSubjects.sendKeys(Keys.ENTER);
         }
     }
-
     private void typeFieldDateOfBirth(String dateOfBirth) {
         fieldDateOfBirth.click();
         String operationSystem = System.getProperty("os.name");
@@ -109,12 +108,14 @@ public AutomationPracticeFormPage clickBtnSubmit(){
             fieldDateOfBirth.sendKeys(Keys.chord(Keys.COMMAND, "a"));
         fieldDateOfBirth.sendKeys(dateOfBirth);
     }
-
     private void clickGender(Gender gender) {
         WebElement elementGender = driver.findElement(By.xpath(gender.getLocator()));
         elementGender.click();
     }
     public boolean isElementPresent_btnCloseModal(){
-        return isElementPresentWithWait(textThanksFor, 5);
+        return isElementPresentWithWait(btnCloseModal, 5);
+    }
+    public boolean isTextToBePresent_textThanksFor(){
+        return isTextToBePresent(textThanksFor, "Thanks for submitting the form", 5);
     }
 }
