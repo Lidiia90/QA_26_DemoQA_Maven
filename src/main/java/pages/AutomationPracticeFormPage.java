@@ -108,6 +108,7 @@ public AutomationPracticeFormPage clickBtnSubmit(){
             fieldDateOfBirth.sendKeys(Keys.chord(Keys.COMMAND, "a"));
         fieldDateOfBirth.sendKeys(dateOfBirth);
     }
+
     private void clickGender(Gender gender) {
         WebElement elementGender = driver.findElement(By.xpath(gender.getLocator()));
         elementGender.click();
