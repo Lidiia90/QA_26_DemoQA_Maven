@@ -14,6 +14,7 @@ public class BasePage {
     {
         driver = wd;
     }
+
     public void hideFooter(){
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("document.querySelector('footer').style.display='none'");

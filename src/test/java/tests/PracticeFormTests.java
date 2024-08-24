@@ -67,7 +67,6 @@ public class PracticeFormTests extends ApplicationManager {
 
         WebElement elementEmail = getDriver().findElement(By.xpath("//tbody/tr[2]/td[last()]"));
         softAssert.assertEquals("frodobaggins@mail.com", elementEmail.getText());
-
         softAssert.assertAll();
 
     }
